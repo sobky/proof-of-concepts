@@ -32,9 +32,12 @@ public class UserDetails {
         RestAssured.baseURI = "https://jsonplaceholder.typicode.com/";
         RestAssured.basePath = "posts";
         given().contentType(ContentType.JSON);
-        String path = RestAssured.baseURI + RestAssured.basePath+"?userId="+_userId;
+        String path = RestAssured.baseURI + RestAssured.basePath+"?userId=3";
         _response = get(path);
         _jsonPath = new JsonPath(_response.asString());
         _userId = _jsonPath.get("id").toString();
     }
+
+
+
 }
