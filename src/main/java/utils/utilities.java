@@ -4,6 +4,9 @@ import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import static com.jayway.restassured.RestAssured.get;
 import static com.jayway.restassured.RestAssured.given;
 
@@ -11,6 +14,7 @@ import static com.jayway.restassured.RestAssured.given;
 public class utilities {
     public static String queryParameter;
     public static String path;
+    private static JSONObject jsonObject;
 
     public static void setBaseUri(String baseUri){
         RestAssured.baseURI = baseUri;
@@ -36,7 +40,16 @@ public class utilities {
         return new JsonPath(response.asString());
     }
 
-    public static String deserializeObject(JsonPath jsonObject, String key){
-        return jsonObject.get(key).toString();
+    public static JSONArray parseJsonArray (String response){
+        JSONArray inputArray = new JSONArray(response);
+        return inputArray;
+    }
+    public static JSONObject parseJsonObject (Response response){
+        System.out.println(response.asString());
+        return jsonObject = new JSONObject(response.asString());
+    }
+
+    public static void resetBasePath(){
+        RestAssured.basePath = null;
     }
 }

@@ -13,6 +13,7 @@ public class TestCase1 {
     private String _userId = null;
     private Response _response = null;
     private JSONArray _userPosts;
+    private JSONArray _comments;
     private JsonPath jsonObject = null;
     private HelperTestSteps helper = new HelperTestSteps();
 
@@ -28,6 +29,8 @@ public class TestCase1 {
         utilities.resetBasePath();
         _userPosts = helper.getUserPosts(_userId);
         utilities.resetBasePath();
+        helper.getPostsComments(_userPosts);
+
     }
 
 }
