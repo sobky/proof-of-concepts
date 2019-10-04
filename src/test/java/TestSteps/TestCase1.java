@@ -4,6 +4,7 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
 import org.json.JSONArray;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import utils.utilities;
@@ -29,7 +30,12 @@ public class TestCase1 {
         utilities.resetBasePath();
         _userPosts = helper.getUserPosts(_userId);
         utilities.resetBasePath();
-        helper.getPostsComments(_userPosts);
+        _comments = helper.getPostsComments(_userPosts);
+
+        for (int i = 0; i<_comments.length(); i++){
+            System.out.println(_comments.getJSONObject(i).get("email").toString());
+            Assert.assertEquals("Email is not valid", true,helper.isValidEmail(_comments.getJSONObject(i).get("email").toString()));
+        }
 
     }
 
