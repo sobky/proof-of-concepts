@@ -11,7 +11,7 @@ import static com.jayway.restassured.RestAssured.get;
 import static com.jayway.restassured.RestAssured.given;
 
 
-public class utilities {
+public class Utilities {
     public static String queryParameter;
     public static String path;
     private static JSONObject jsonObject;
@@ -48,6 +48,8 @@ public class utilities {
         System.out.println(response.asString());
         return jsonObject = new JSONObject(response.asString());
     }
+
+
 
     public static void resetBasePath(){
         RestAssured.basePath = null;
