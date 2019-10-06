@@ -14,6 +14,11 @@
       "id": 3,
       "name": "Sarah Doe",
       "username": "Sarah"
+    },
+    {
+      "id": 4,
+      "name": "Nicola Doe",
+      "username": "Nicola"
     }
   ],
   "posts": [
@@ -40,7 +45,12 @@
     {
       "userId": 3,
       "id": 5,
-      "title": "Title4"
+      "title": "Title5"
+    },
+    {
+      "userId": 4,
+      "id": 6,
+      "title": "Title6"
     }
   ],
   "comments": [
@@ -64,6 +74,18 @@
     },
     {
       "postId": 2,
+      "id": 4,
+      "name": "id labore ex et quam laborum",
+      "email": "wrong email!"
+    },
+    {
+      "postId": 6,
+      "id": 4,
+      "name": "id labore ex et quam laborum",
+      "email": "wrong email!"
+    },
+    {
+      "postId": 6,
       "id": 4,
       "name": "id labore ex et quam laborum",
       "email": "wrong email!"

@@ -9,7 +9,7 @@ import org.junit.Test;
 import utils.Utilities;
 
 public class TestCase4 {
-    private static final String baseUri = "https://jsonplaceholder.typicode.com/";
+    private static final String baseUri = "http://my-json-server.typicode.com/sobky/proof-of-concepts/";
     private String _userId = null;
     private JSONArray  _userDetails = null;
     private Response _response = null;
@@ -25,15 +25,15 @@ public class TestCase4 {
 
     @Test
     public void run() {
-        _userDetails = helper.getUserDetails("Samantha");
+        _userDetails = helper.getUserDetails("Sarah");
         helper.assertObject(_userDetails, 1);
         _userId = helper.getUserId(_userDetails);
         Utilities.resetBasePath();
         _userPosts = helper.getUserPosts(_userId);
-        helper.assertObject(_userPosts, 10);
+        helper.assertObject(_userPosts, 2);
         Utilities.resetBasePath();
         _comments = helper.getPostsComments(_userPosts);
-        helper.assertEmailValidation(_comments,false, "");
+        helper.assertObject(_comments,0);
 
 
 
