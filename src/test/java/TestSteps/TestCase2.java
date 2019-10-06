@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import utils.Utilities;
 
-public class TestCase1 {
+public class TestCase2 {
     private static final String baseUri = "https://jsonplaceholder.typicode.com/";
     private String _userId = null;
     private JSONArray  _userDetails = null;
@@ -27,17 +27,17 @@ public class TestCase1 {
 
     @Test
     public void run() {
-        _userDetails = helper.getUserDetails("Samanth");
-        helper.assertObject(_userDetails, 0);
-        /*Utilities.resetBasePath();
+        _userDetails = helper.getUserDetails("Samantha");
+        helper.assertObject(_userDetails, 1);
+        _userId = helper.getUserId(_userDetails);
+        Utilities.resetBasePath();
         _userPosts = helper.getUserPosts(_userId);
+        helper.assertObject(_userPosts, 10);
         Utilities.resetBasePath();
         _comments = helper.getPostsComments(_userPosts);
+        helper.assertEmailValidation(_comments);
 
-        for (int i = 0; i<_comments.length(); i++){
-            System.out.println(_comments.getJSONObject(i).get("email").toString());
-            Assert.assertEquals("Email is not valid", true,helper.isValidEmail(_comments.getJSONObject(i).get("email").toString()));
-        }*/
+
 
     }
 

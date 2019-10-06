@@ -3,6 +3,7 @@ package TestSteps;
 import com.jayway.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.junit.Assert;
 import utils.Utilities;
 
 import static org.junit.Assert.assertEquals;
@@ -20,8 +21,8 @@ public class HelperTestSteps {
 
     }
 
-    public void assertUserDetails(JSONArray userDetails, int expected){
-        assertEquals("No Result returned! Please make sure that you're using a valid Username in your GetUsers calling",expected,userDetails.length());
+    public void assertObject(JSONArray _object, int expected){
+        assertEquals("No Result returned! Please make sure that you're using a valid Username in your GetUsers calling",expected,_object.length());
     }
 
     public String getUserId(JSONArray userDetails){
@@ -51,9 +52,15 @@ public class HelperTestSteps {
         return comments;
     }
 
+    public void assertEmailValidation(JSONArray comments){
+        for (int i = 0; i<comments.length(); i++){
+            /* System.out.println(comments.getJSONObject(i).get("email").toString());*/Assert.assertEquals("Email is not valid", true,isValidEmail(comments.getJSONObject(i).get("email").toString()));
+        }
+    }
 
 
-    public boolean isValidEmail(String email){
+
+    private boolean isValidEmail(String email){
         String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(regex);
     }
