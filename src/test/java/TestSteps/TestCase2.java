@@ -1,53 +1,28 @@
 package TestSteps;
 
-import com.jayway.restassured.http.ContentType;
-import com.jayway.restassured.response.Response;
-import org.json.JSONArray;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import utils.Utilities;
 
-public class TestCase2 {
-    private static final String baseUri = "https://jsonplaceholder.typicode.com/";
-    private String _userId = null;
-    private JSONArray  _userDetails = null;
-    private Response _response = null;
-    private JSONArray _userPosts;
-    private JSONArray _comments;
-    private HelperTestSteps helper = new HelperTestSteps();
+public class TestCase2 extends TestCaseBase{
 
-    @Before
-    public void configure() {
-        Utilities.setBaseUri(baseUri);
-        Utilities.setAPIContentType(ContentType.JSON);
+    public TestCase2() {
+        super("https://jsonplaceholder.typicode.com/");
     }
 
     @Test
     public void run() {
-        _userDetails = helper.getUserDetails("Samantha");
-        helper.assertObject(_userDetails, 1);
-        _userId = helper.getUserId(_userDetails);
+        _userDetails = _helper.getUserDetails("Samantha");
+        _helper.assertObject(_userDetails, 1);
+        _userId = _helper.getUserId(_userDetails);
         Utilities.resetBasePath();
-        _userPosts = helper.getUserPosts(_userId);
-        helper.assertObject(_userPosts, 10);
+        _userPosts = _helper.getUserPosts(_userId);
+        _helper.assertObject(_userPosts, 10);
         Utilities.resetBasePath();
-        _comments = helper.getPostsComments(_userPosts);
-        helper.assertEmailValidation(_comments, true, "not valid!");
-
-
+        _comments = _helper.getPostsComments(_userPosts);
+        _helper.assertEmailValidation(_comments, true);
 
     }
 
-    @After
-    public void afterTest(){
-        //Utilities.resetBasePath();
-    }
-
-    private void print(int value)
-    {
-        System.out.println(value);
-    }
 
 
 

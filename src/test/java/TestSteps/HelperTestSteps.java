@@ -34,7 +34,6 @@ public class HelperTestSteps {
         Utilities.setBasePath("posts");
         Utilities.addParameter("userId",userId);
         _response = Utilities.getAPIResponse();
-        System.out.println(_response.asString());
         jsonArray = Utilities.parseJsonArray(_response.asString());
         return jsonArray;
     }
@@ -53,10 +52,9 @@ public class HelperTestSteps {
         return comments;
     }
 
-    public void assertEmailValidation(JSONArray comments, boolean expected, String errorMessage){
+    public void assertEmailValidation(JSONArray comments, boolean expected){
         for (int i = 0; i<comments.length(); i++){
-            /* System.out.println(comments.getJSONObject(i).get("email").toString());*/
-            Assert.assertEquals("Email is " + errorMessage, expected,isValidEmail(comments.getJSONObject(i).get("email").toString()));
+            Assert.assertEquals("Email "+ comments.getJSONObject(i).get("email").toString()  +" is not valid", expected,isValidEmail(comments.getJSONObject(i).get("email").toString()));
         }
     }
 

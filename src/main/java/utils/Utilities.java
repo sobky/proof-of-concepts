@@ -49,8 +49,6 @@ public class Utilities {
         return jsonObject = new JSONObject(response.asString());
     }
 
-
-
     public static void resetBasePath(){
         RestAssured.basePath = null;
     }
