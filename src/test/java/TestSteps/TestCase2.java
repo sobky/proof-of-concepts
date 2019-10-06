@@ -43,7 +43,7 @@ public class TestCase2 {
 
     @After
     public void afterTest(){
-        Utilities.resetBasePath();
+        //Utilities.resetBasePath();
     }
 
     private void print(int value)
