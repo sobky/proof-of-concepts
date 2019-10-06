@@ -8,12 +8,12 @@ import org.junit.Before;
 import org.junit.Test;
 import utils.Utilities;
 
-public class TestCase2 {
+public class TestCase3 {
     private static final String baseUri = "https://jsonplaceholder.typicode.com/";
     private String _userId = null;
     private JSONArray  _userDetails = null;
     private Response _response = null;
-    private JSONArray _userPosts;
+    private JSONArray _userPosts ;
     private JSONArray _comments;
     private HelperTestSteps helper = new HelperTestSteps();
 
@@ -29,14 +29,8 @@ public class TestCase2 {
         helper.assertObject(_userDetails, 1);
         _userId = helper.getUserId(_userDetails);
         Utilities.resetBasePath();
-        _userPosts = helper.getUserPosts(_userId);
-        helper.assertObject(_userPosts, 10);
-        Utilities.resetBasePath();
-        _comments = helper.getPostsComments(_userPosts);
-        helper.assertEmailValidation(_comments, true, "not valid!");
-
-
-
+        _userPosts = helper.getUserPosts("11");
+        helper.assertObject(_userPosts, 0);
     }
 
     @After

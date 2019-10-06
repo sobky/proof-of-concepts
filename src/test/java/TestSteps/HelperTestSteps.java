@@ -22,7 +22,7 @@ public class HelperTestSteps {
     }
 
     public void assertObject(JSONArray _object, int expected){
-        assertEquals("No Result returned! Please make sure that you're using a valid Username in your GetUsers calling",expected,_object.length());
+        assertEquals("An error has occurred while getting your response!",expected,_object.length());
     }
 
     public String getUserId(JSONArray userDetails){
@@ -34,6 +34,7 @@ public class HelperTestSteps {
         Utilities.setBasePath("posts");
         Utilities.addParameter("userId",userId);
         _response = Utilities.getAPIResponse();
+        System.out.println(_response.asString());
         jsonArray = Utilities.parseJsonArray(_response.asString());
         return jsonArray;
     }
@@ -52,9 +53,10 @@ public class HelperTestSteps {
         return comments;
     }
 
-    public void assertEmailValidation(JSONArray comments){
+    public void assertEmailValidation(JSONArray comments, boolean expected, String errorMessage){
         for (int i = 0; i<comments.length(); i++){
-            /* System.out.println(comments.getJSONObject(i).get("email").toString());*/Assert.assertEquals("Email is not valid", true,isValidEmail(comments.getJSONObject(i).get("email").toString()));
+            /* System.out.println(comments.getJSONObject(i).get("email").toString());*/
+            Assert.assertEquals("Email is " + errorMessage, expected,isValidEmail(comments.getJSONObject(i).get("email").toString()));
         }
     }
 

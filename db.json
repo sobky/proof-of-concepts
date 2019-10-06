@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "username": "John"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "username": "Jane"
+    }
+  ],
+  "posts": [
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "Title1"
+    },
+    {
+      "userId": 1,
+      "id": 2,
+      "title": "Title2"
+    },
+    {
+      "userId": 1,
+      "id": 3,
+      "title": "Title3"
+    }
+  ],
+  "comments": [
+    {
+      "postId": 1,
+      "id": 1,
+      "name": "id labore ex et quam laborum",
+      "email": "Eliseo1@gardner.biz"
+    },
+    {
+      "postId": 1,
+      "id": 2,
+      "name": "id labore ex et quam laborum",
+      "email": "Eliseo2@gardner.biz"
+    },
+    {
+      "postId": 1,
+      "id": 3,
+      "name": "id labore ex et quam laborum",
+      "email": "Eliseo3@gardner.biz"
+    },
+    {
+      "postId": 2,
+      "id": 4,
+      "name": "id labore ex et quam laborum",
+      "email": "wrong email!"
+    }
+  ]
+}

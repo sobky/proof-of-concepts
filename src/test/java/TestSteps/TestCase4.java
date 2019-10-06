@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import utils.Utilities;
 
-public class TestCase2 {
+public class TestCase4 {
     private static final String baseUri = "https://jsonplaceholder.typicode.com/";
     private String _userId = null;
     private JSONArray  _userDetails = null;
@@ -33,7 +33,7 @@ public class TestCase2 {
         helper.assertObject(_userPosts, 10);
         Utilities.resetBasePath();
         _comments = helper.getPostsComments(_userPosts);
-        helper.assertEmailValidation(_comments, true, "not valid!");
+        helper.assertEmailValidation(_comments,false, "");
 
 
 
