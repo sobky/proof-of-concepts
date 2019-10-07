@@ -28,7 +28,6 @@ public class TestCaseBase {
 
     @After
     public void afterTest(){
-        //Utilities.resetBasePath();
     }
 
 }
